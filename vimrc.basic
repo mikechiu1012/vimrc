@@ -1,0 +1,76 @@
+" ========== basic setting ==========
+" show line number
+set nu
+
+" auto indent
+set ai
+
+" show underline at the line of cursor
+set cursorline
+
+" change default background from light to dark to show comments 
+set bg=dark
+
+" set default tab width from 8 spaces to 4 spaces
+set tabstop=4
+
+" replace tab with spaces set in tabstop 
+set expandtab
+" :retab to convert all tab in a file, :.retab to convert tab in a line
+
+" set auto indent width to 4 spaces
+set shiftwidth=4
+
+" enable mouse selection functionality
+set mouse=a
+
+" show row, column, file path status
+set ruler
+
+" enable backspace under insert-mode
+set backspace=2
+
+" auto comment below lines while encountering the comment line of pasting
+" set formatoptions+=r
+
+" keep history
+set history=1000
+
+" auto complete key word search
+set incsearch
+
+" highlight search
+set hlsearch
+
+" auto indent by detected filetype 
+filetype indent on
+
+" highlight LineNumber/CursorLine within bold style, front color DarkGrey and background Color None
+" cterm supports color table
+" NR-16   NR-8    COLOR NAME 
+"    0	    0	    Black
+"    1	    4	    DarkBlue
+"    2	    2	    DarkGreen
+"    3	    6	    DarkCyan
+"    4	    1	    DarkRed
+"    5	    5	    DarkMagenta
+"    6	    3	    Brown, DarkYellow
+"    7	    7	    LightGray, LightGrey, Gray, Grey
+"    8	    0*	    DarkGray, DarkGrey
+"    9	    4*	    Blue, LightBlue
+"    10	    2*	    Green, LightGreen
+"    11	    6*	    Cyan, LightCyan
+"    12	    1*	    Red, LightRed
+"    13	    5*	    Magenta, LightMagenta
+"    14	    3*	    Yellow, LightYellow
+"    15	    7*	    White
+hi LineNr cterm=bold ctermfg=DarkGrey ctermbg=NONE
+hi CursorLineNr cterm=bold ctermfg=Green ctermbg=NONE
+
+" ========== key mapping ==========
+" under insert mode, when typing (, will apply ( -> ) -> Esc (to command mode) -> i (back to insert mode to make cursor within ()
+inoremap ( ()<Esc>i  
+inoremap " ""<Esc>i
+inoremap ' ''<Esc>i
+" when typing { + newline, apply { -> CR(new line) -> } -> Esc -> k (move to up line) -> o (insert new line)
+inoremap {<CR> {<CR>}<Esc>ko
